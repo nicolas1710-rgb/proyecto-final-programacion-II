@@ -21,13 +21,13 @@ public class DataInitializer {
         System.out.println("--- INICIALIZANDO DATOS DE PRUEBA ---");
 
         // 1. Admin
-        Administrador admin = new Administrador("Admin Principal", "admin@ticketflow.com", "admin123");
+        Administrador admin = new Administrador("Admin Principal", "admin@gmail.com", "admin123");
         adminRepo.save(admin);
 
         // 2. Usuarios con métodos de pago
         List<Usuario> usuarios = new ArrayList<>();
         for (int i = 1; i <= 5; i++) {
-            Usuario u = new Usuario("Usuario " + i, "user" + i + "@mail.com", "555-000" + i, "pass" + i);
+            Usuario u = new Usuario("Usuario " + i, "usuario" + i + "@gmail.com", "555-000" + i, "contraseña" + i);
             u.getMetodosDePago().add(
                     new MetodoPago(TipoMetodoPago.TARJETA_CREDITO, "**** **** **** 123" + i, u.getNombreCompleto()));
             usuarioRepo.save(u);
@@ -79,12 +79,28 @@ public class DataInitializer {
                 LocalDateTime.now().plusDays(10), recintos.get(0)));
         eventos.add(new Evento("Festival Culinario", CategoriaEvento.OTRO, "Sabores del mundo",
                 recintos.get(2).getCiudad(), LocalDateTime.now().plusDays(60), recintos.get(2)));
+        eventos.add(new Evento("Estreno: Sci-Fi Odyssey", CategoriaEvento.CINE,
+                "La película más esperada de ciencia ficción",
+                recintos.get(1).getCiudad(), LocalDateTime.now().plusDays(20), recintos.get(1)));
+        eventos.add(new Evento("Stand-up Comedy Special", CategoriaEvento.STANDUP,
+                "Risas garantizadas con los mejores comediantes",
+                recintos.get(1).getCiudad(), LocalDateTime.now().plusDays(5), recintos.get(1)));
+        eventos.add(new Evento("Festival de Música Estelar", CategoriaEvento.FESTIVAL,
+                "Festival con bandas nacionales e internacionales",
+                recintos.get(0).getCiudad(), LocalDateTime.now().plusDays(50), recintos.get(0)));
+        eventos.add(new Evento("Galería de Arte Moderno", CategoriaEvento.EXPOSICION,
+                "Muestra pictórica y de esculturas contemporáneas",
+                recintos.get(2).getCiudad(), LocalDateTime.now().plusDays(25), recintos.get(2)));
 
         eventos.get(0).setEstadoEvento(EstadoEvento.PUBLICADO);
         eventos.get(1).setEstadoEvento(EstadoEvento.PUBLICADO);
         eventos.get(2).setEstadoEvento(EstadoEvento.PAUSADO);
         eventos.get(3).setEstadoEvento(EstadoEvento.CANCELADO);
         eventos.get(4).setEstadoEvento(EstadoEvento.BORRADOR);
+        eventos.get(5).setEstadoEvento(EstadoEvento.PUBLICADO);
+        eventos.get(6).setEstadoEvento(EstadoEvento.PUBLICADO);
+        eventos.get(7).setEstadoEvento(EstadoEvento.PUBLICADO);
+        eventos.get(8).setEstadoEvento(EstadoEvento.PUBLICADO);
 
         for (Evento e : eventos) {
             eventoRepo.save(e);

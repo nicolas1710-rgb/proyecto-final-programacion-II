@@ -35,13 +35,14 @@
     
     <Label text="Haz doble clic en un evento para ver detalles y comprar." styleClass="subtitle-label"/>
     
-    <!-- Tabla -->
-    <TableView fx:id="tvEventos" VBox.vgrow="ALWAYS">
-        <columns>
-            <TableColumn fx:id="colNombre" text="Evento" prefWidth="250"/>
-            <TableColumn fx:id="colFecha" text="Fecha y Hora" prefWidth="150"/>
-            <TableColumn fx:id="colCiudad" text="Ciudad" prefWidth="150"/>
-            <TableColumn fx:id="colCategoria" text="Categoría" prefWidth="120"/>
-        </columns>
-    </TableView>
+    <!-- Grid de Tarjetas -->
+    <ScrollPane fx:id="scrollPane" fitToWidth="true" styleClass="event-scroll-pane" VBox.vgrow="ALWAYS">
+        <content>
+            <GridPane fx:id="gridEventos" hgap="20" vgap="20" styleClass="event-grid-pane">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+            </GridPane>
+        </content>
+    </ScrollPane>
 </VBox>

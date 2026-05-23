@@ -4,7 +4,12 @@
 
 <VBox spacing="15" styleClass="root" xmlns:fx="http://javafx.com/fxml" 
       fx:controller="com.ticketflow.controller.MisComprasController">
-    <Label text="Mis Compras" styleClass="title-label"/>
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button text="← Ir al Inicio" onAction="#onIrAlInicio" styleClass="button-secondary"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label text="Mis Compras" styleClass="title-label"/>
+    </HBox>
+    
     <Label text="Haz doble clic en una compra para ver sus detalles y descargar tickets." styleClass="subtitle-label"/>
     
     <TableView fx:id="tvCompras" VBox.vgrow="ALWAYS">

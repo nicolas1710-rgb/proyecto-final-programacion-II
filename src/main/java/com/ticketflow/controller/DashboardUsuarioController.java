@@ -1,6 +1,6 @@
 package com.ticketflow.controller;
 
-import com.ticketflow.patterns.creational.GestorSesion;
+import com.ticketflow.patterns.creacion.GestorSesion;
 import com.ticketflow.util.NavigationManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

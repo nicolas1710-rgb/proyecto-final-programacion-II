@@ -2,7 +2,7 @@ package com.ticketflow.controller;
 
 import com.ticketflow.app.Main;
 import com.ticketflow.model.Usuario;
-import com.ticketflow.patterns.creational.GestorSesion;
+import com.ticketflow.patterns.creacion.GestorSesion;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 

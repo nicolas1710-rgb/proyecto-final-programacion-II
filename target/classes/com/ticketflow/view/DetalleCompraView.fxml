@@ -4,7 +4,10 @@
 
 <VBox spacing="15" styleClass="root" xmlns:fx="http://javafx.com/fxml" 
       fx:controller="com.ticketflow.controller.DetalleCompraController">
-    <Button text="← Volver" onAction="#onVolver" styleClass="button-secondary"/>
+    <HBox spacing="10">
+        <Button text="← Volver" onAction="#onVolver" styleClass="button-secondary"/>
+        <Button text="🏠 Ir al Inicio" onAction="#onIrAlInicio" styleClass="button-secondary"/>
+    </HBox>
     
     <Label fx:id="lblIdCompra" styleClass="title-label" text="Compra #..."/>
     

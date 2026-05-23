@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+
+<VBox fx:id="cardRoot" spacing="12" styleClass="event-card" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ticketflow.controller.EventoCardController" prefWidth="220" maxWidth="220">
+    
+    <!-- Image Header with gradient/emoji fallback -->
+    <StackPane fx:id="imgContainer" styleClass="event-card-header" prefHeight="120" minHeight="120" maxHeight="120">
+        <ImageView fx:id="imgEvento" fitWidth="220" fitHeight="120" preserveRatio="false" visible="false"/>
+        <Label fx:id="lblIconoPlaceholder" text="📅" style="-fx-font-size: 40px;"/>
+    </StackPane>
+
+    <!-- Card Content -->
+    <VBox spacing="8" VBox.vgrow="ALWAYS">
+        <padding>
+            <Insets left="15" right="15" bottom="15"/>
+        </padding>
+        
+        <!-- Category Badge -->
+        <HBox>
+            <Label fx:id="lblCategoria" text="CONCIERTO" styleClass="event-card-badge"/>
+        </HBox>
+
+        <!-- Title -->
+        <Label fx:id="lblTitulo" text="Nombre del Evento" styleClass="event-card-title" wrapText="true" minHeight="45" maxHeight="45" alignment="TOP_LEFT"/>
+        
+        <!-- Info Rows -->
+        <VBox spacing="4">
+            <HBox spacing="6" alignment="CENTER_LEFT">
+                <Label text="📅" style="-fx-font-size: 11px;"/>
+                <Label fx:id="lblFechaHora" text="20 Oct, 2026 - 20:00" styleClass="event-card-info"/>
+            </HBox>
+            <HBox spacing="6" alignment="CENTER_LEFT">
+                <Label text="📍" style="-fx-font-size: 11px;"/>
+                <Label fx:id="lblUbicacion" text="Bogotá, Estadio" styleClass="event-card-info"/>
+            </HBox>
+        </VBox>
+        
+        <Region VBox.vgrow="ALWAYS"/>
+
+        <!-- Details Button -->
+        <Button fx:id="btnDetalles" text="Ver detalles" styleClass="button-primary" maxWidth="Infinity" HBox.hgrow="ALWAYS">
+            <VBox.margin>
+                <Insets top="8"/>
+            </VBox.margin>
+        </Button>
+    </VBox>
+</VBox>

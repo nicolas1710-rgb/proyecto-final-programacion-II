@@ -3,7 +3,7 @@ package com.ticketflow.controller;
 import com.ticketflow.app.Main;
 import com.ticketflow.model.Incidencia;
 import com.ticketflow.enums.TipoIncidencia;
-import com.ticketflow.patterns.creational.GestorSesion;
+import com.ticketflow.patterns.creacion.GestorSesion;
 import com.ticketflow.util.DateUtil;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;

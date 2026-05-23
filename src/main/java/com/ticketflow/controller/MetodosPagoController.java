@@ -4,7 +4,7 @@ import com.ticketflow.app.Main;
 import com.ticketflow.model.MetodoPago;
 import com.ticketflow.model.Usuario;
 import com.ticketflow.enums.TipoMetodoPago;
-import com.ticketflow.patterns.creational.GestorSesion;
+import com.ticketflow.patterns.creacion.GestorSesion;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;

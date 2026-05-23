@@ -2,7 +2,7 @@ package com.ticketflow.controller;
 
 import com.ticketflow.app.Main;
 import com.ticketflow.model.Compra;
-import com.ticketflow.patterns.creational.GestorSesion;
+import com.ticketflow.patterns.creacion.GestorSesion;
 import com.ticketflow.util.DateUtil;
 import com.ticketflow.util.NavigationManager;
 import javafx.beans.property.SimpleStringProperty;
@@ -57,5 +57,9 @@ public class MisComprasController {
         DetalleCompraController.compraActual = c;
         NavigationManager.getInstance().navigateTo("/com/ticketflow/view/DetalleCompraView.fxml",
                 "TicketFlow - Detalle Compra");
+    }
+    @FXML
+    public void onIrAlInicio() {
+        NavigationManager.getInstance().navigateTo("/com/ticketflow/view/DashboardUsuarioView.fxml", "TicketFlow - Usuario");
     }
 }

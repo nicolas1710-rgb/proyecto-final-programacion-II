@@ -101,4 +101,8 @@ public class DetalleCompraController {
     public void onVolver() {
         NavigationManager.getInstance().goBack();
     }
+    @FXML
+    public void onIrAlInicio() {
+        NavigationManager.getInstance().navigateTo("/com/ticketflow/view/DashboardUsuarioView.fxml", "TicketFlow - Usuario");
+    }
 }

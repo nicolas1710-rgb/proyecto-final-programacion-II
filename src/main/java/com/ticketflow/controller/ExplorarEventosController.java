@@ -4,12 +4,15 @@ import com.ticketflow.app.Main;
 import com.ticketflow.model.Evento;
 import com.ticketflow.enums.CategoriaEvento;
 import com.ticketflow.util.NavigationManager;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
-import java.time.LocalDate;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ExplorarEventosController {
@@ -22,15 +25,11 @@ public class ExplorarEventosController {
     @FXML
     private TextField txtPrecioMax;
     @FXML
-    private TableView<Evento> tvEventos;
+    private ScrollPane scrollPane;
     @FXML
-    private TableColumn<Evento, String> colNombre;
-    @FXML
-    private TableColumn<Evento, String> colFecha;
-    @FXML
-    private TableColumn<Evento, String> colCiudad;
-    @FXML
-    private TableColumn<Evento, String> colCategoria;
+    private GridPane gridEventos;
+
+    private List<Evento> eventosActivos = new ArrayList<>();
 
     @FXML
     public void initialize() {
@@ -38,23 +37,9 @@ public class ExplorarEventosController {
         cmbCategoria.setItems(FXCollections.observableArrayList(CategoriaEvento.values()));
         cmbCiudad.setItems(FXCollections.observableArrayList("Bogotá", "Medellín", "Cali"));
 
-        // Columnas
-        colNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        colFecha.setCellValueFactory(
-                cellData -> new SimpleStringProperty(cellData.getValue().getFechaHora().toString()));
-        colCiudad.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCiudad()));
-        colCategoria.setCellValueFactory(
-                cellData -> new SimpleStringProperty(cellData.getValue().getCategoria().getDescripcion()));
-
-        // Doble clic para detalle
-        tvEventos.setRowFactory(tv -> {
-            TableRow<Evento> row = new TableRow<>();
-            row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && !row.isEmpty()) {
-                    verDetalleEvento(row.getItem());
-                }
-            });
-            return row;
+        // Escuchar cambios de tamaño en el ScrollPane para ajustar columnas del GridPane
+        scrollPane.widthProperty().addListener((obs, oldVal, newVal) -> {
+            reorganizarGrid(newVal.doubleValue());
         });
 
         cargarEventos();
@@ -85,14 +70,58 @@ public class ExplorarEventosController {
         } catch (NumberFormatException ignored) {
         }
 
-        List<Evento> eventos = Main.eventoService.buscarConFiltros(fecha, ciudad, categoria, precioMax);
-        tvEventos.setItems(FXCollections.observableArrayList(eventos));
+        eventosActivos = Main.eventoService.buscarConFiltros(fecha, ciudad, categoria, precioMax);
+        
+        // Ejecutar la organización del grid con el ancho actual (o fallback si no se ha renderizado)
+        double currentWidth = scrollPane.getWidth();
+        if (currentWidth <= 100) {
+            currentWidth = 800; // Valor default inicial razonable
+        }
+        reorganizarGrid(currentWidth);
+    }
+
+    private void reorganizarGrid(double width) {
+        if (gridEventos == null) return;
+        
+        gridEventos.getChildren().clear();
+        
+        if (eventosActivos == null || eventosActivos.isEmpty()) {
+            return;
+        }
+
+        // Cada tarjeta mide 220px y el hgap es de 20px
+        double cardWidth = 240.0;
+        int columns = (int) Math.max(1, Math.floor((width - 20) / cardWidth));
+
+        // Limitar a máximo 4 columnas para que quepa bien en el diseño
+        columns = Math.min(4, columns);
+
+        int row = 0;
+        int col = 0;
+
+        for (Evento ev : eventosActivos) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ticketflow/view/EventoCardView.fxml"));
+                VBox card = loader.load();
+
+                EventoCardController controller = loader.getController();
+                controller.setEvento(ev, () -> verDetalleEvento(ev));
+
+                gridEventos.add(card, col, row);
+
+                col++;
+                if (col >= columns) {
+                    col = 0;
+                    row++;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.err.println("Error al cargar tarjeta del evento: " + ev.getNombre());
+            }
+        }
     }
 
     private void verDetalleEvento(Evento evento) {
-        // Guardar el evento en una sesión temporal o pasarlo al controller
-        // Aquí pasamos directamente configurando un controller estático por simplicidad
-        // en FX
         DetalleEventoController.eventoActual = evento;
         NavigationManager.getInstance().navigateTo("/com/ticketflow/view/DetalleEventoView.fxml",
                 "TicketFlow - Detalle Evento");

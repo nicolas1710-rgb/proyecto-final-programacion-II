@@ -39,7 +39,8 @@ public class Main extends Application {
                 usuarioRepo, adminRepo, eventoRepo, recintoRepo,
                 zonaRepo, asientoRepo, compraService);
 
-        // Configurar NavigationManager
+        // Config
+        // urar NavigationManager
         NavigationManager.getInstance().setStage(primaryStage);
 
         // Iniciar en pantalla de Login

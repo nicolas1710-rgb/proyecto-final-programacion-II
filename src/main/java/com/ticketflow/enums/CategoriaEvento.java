@@ -5,6 +5,10 @@ public enum CategoriaEvento {
     TEATRO("Teatro"),
     CONFERENCIA("Conferencia"),
     DEPORTE("Deporte"),
+    CINE("Cine"),
+    STANDUP("Stand-up Comedy"),
+    FESTIVAL("Festival"),
+    EXPOSICION("Exposición"),
     OTRO("Otro");
 
     private final String descripcion;
