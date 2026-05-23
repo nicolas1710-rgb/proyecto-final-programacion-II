@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    //Repositorios estáticos para compartirlos entre controladores
+    //Repositorios estáticos para compartirlos entre controladores a
     public static UsuarioRepository usuarioRepo = new UsuarioRepository();
     public static AdministradorRepository adminRepo = new AdministradorRepository();
     public static EventoRepository eventoRepo = new EventoRepository();
