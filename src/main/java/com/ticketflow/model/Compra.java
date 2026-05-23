@@ -1,6 +1,8 @@
 package com.ticketflow.model;
 
 import com.ticketflow.enums.EstadoCompra;
+import com.ticketflow.enums.TipoServicio;
+import com.ticketflow.patterns.estructural.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,9 +38,28 @@ public class Compra {
     }
 
     public void calcularTotal() {
-        double totalItems = items.stream().mapToDouble(ItemCompra::getSubtotal).sum();
-        double totalServicios = serviciosAdicionales.stream().mapToDouble(ServicioAdicional::getPrecio).sum();
-        this.total = totalItems + totalServicios;
+        double totalCalculado = 0;
+        boolean tieneVip = serviciosAdicionales.stream().anyMatch(s -> s.getTipo() == TipoServicio.VIP);
+        boolean tieneSeguro = serviciosAdicionales.stream().anyMatch(s -> s.getTipo() == TipoServicio.SEGURO);
+        boolean tieneMerch = serviciosAdicionales.stream().anyMatch(s -> s.getTipo() == TipoServicio.MERCHANDISING);
+        boolean tieneParqueadero = serviciosAdicionales.stream().anyMatch(s -> s.getTipo() == TipoServicio.PARQUEADERO);
+
+        for (ItemCompra item : items) {
+            Entrada simulada = new Entrada(item.getZona(), item.getAsiento(), item.getPrecioUnitario());
+            TicketComponent tc = new EntradaBase(simulada);
+
+            if (tieneVip)
+                tc = new VIPDecorator(tc);
+            if (tieneSeguro)
+                tc = new SeguroDecorator(tc);
+            if (tieneMerch)
+                tc = new MerchandisingDecorator(tc);
+            if (tieneParqueadero)
+                tc = new ParqueaderoDecorator(tc);
+
+            totalCalculado += tc.getPrecio() * item.getCantidad();
+        }
+        this.total = totalCalculado;
     }
 
     public UUID getIdCompra() {
