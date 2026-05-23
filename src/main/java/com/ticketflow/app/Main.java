@@ -40,7 +40,7 @@ public class Main extends Application {
                 zonaRepo, asientoRepo, compraService);
 
         // Config
-        // urar NavigationManager
+        //urar NavigationManager
         NavigationManager.getInstance().setStage(primaryStage);
 
         // Iniciar en pantalla de Login
