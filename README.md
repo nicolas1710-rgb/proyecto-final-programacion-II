@@ -1,3 +1,4 @@
+Nicolas Arbelaez Contreras - Cristian Cruz - Santiago Avila
 # TicketFlow - Plataforma de Gestión de Eventos y Venta de Entradas
 
 TicketFlow es una aplicación de escritorio desarrollada en **Java 17** y **JavaFX**, siguiendo las mejores prácticas de Arquitectura de Software, Metodologías Orientadas a Objetos (SOLID) y Patrones de Diseño.
