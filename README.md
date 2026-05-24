@@ -37,10 +37,10 @@ TicketFlow es una aplicación de escritorio desarrollada en **Java 17** y **Java
 Para facilitar la evaluación de la aplicación, el sistema ya viene con datos pre-cargados (ver `DataInitializer.java`):
 
 - **Administrador**: 
-  - Correo: `admin@ticketflow.com`
+  - Correo: `admin@gmail.com`
   - Contraseña: `admin123`
 - **Usuarios de Prueba**:
-  - Correo: `user1@mail.com`
-  - Contraseña: `pass1` (y así del 1 al 5)
+  - Correo: `usuario1@gmail.com`
+  - Contraseña: `contraseña1` (y así del 1 al 5)
   
 ¡Puedes iniciar sesión directamente usando estas credenciales y probar la aplicación!
