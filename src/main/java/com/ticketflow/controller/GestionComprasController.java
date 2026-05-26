@@ -70,7 +70,7 @@ public class GestionComprasController {
                 + compraSeleccionada.getIdCompra().toString().substring(0, 8) + "?");
         alert.showAndWait().ifPresent(r -> {
             if (r == ButtonType.OK) {
-                // Usamos el patrón Command para la acción de cancelar
+                
                 ComandoCancelarCompra cmd = new ComandoCancelarCompra(Main.compraService,
                         compraSeleccionada.getIdCompra());
                 invoker.ejecutarComando(cmd);

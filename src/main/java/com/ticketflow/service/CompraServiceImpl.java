@@ -6,11 +6,11 @@ import com.ticketflow.repository.*;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Implementación del servicio de compras.
- * Principio DIP: depende de interfaces de servicio y repositorio, no de
- * implementaciones.
- */
+
+
+
+
+
 public class CompraServiceImpl implements ICompraService {
     private final CompraRepository compraRepository;
     private final UsuarioRepository usuarioRepository;
@@ -44,7 +44,7 @@ public class CompraServiceImpl implements ICompraService {
                     "El evento no está disponible para compra: " + evento.getEstadoEvento());
         }
 
-        // Validar y reservar asientos
+        
         for (ItemCompra item : items) {
             if (item.getAsiento() != null) {
                 Asiento asiento = item.getAsiento();
@@ -87,13 +87,13 @@ public class CompraServiceImpl implements ICompraService {
                 || compra.getEstadoCompra() == EstadoCompra.REEMBOLSADA) {
             return false;
         }
-        // Liberar asientos
+        
         compra.getItems().forEach(item -> {
             if (item.getAsiento() != null) {
                 asientoService.cambiarEstado(item.getAsiento().getIdAsiento(), EstadoAsiento.DISPONIBLE);
             }
         });
-        // Anular entradas
+        
         entradaRepository.findByCompra(idCompra).forEach(e -> {
             e.setEstadoEntrada(EstadoEntrada.ANULADA);
             entradaRepository.update(e);
@@ -110,12 +110,12 @@ public class CompraServiceImpl implements ICompraService {
                 .orElseThrow(() -> new IllegalArgumentException("Compra no encontrada: " + idCompra));
 
         Pago pago = new Pago(metodoPago, compra.getTotal());
-        // Simular aprobación (90% éxito)
+        
         if (Math.random() > 0.1) {
             pago.setEstadoPago(EstadoPago.APROBADO);
             compra.setEstadoCompra(EstadoCompra.PAGADA);
             compra.setPago(pago);
-            // Marcar asientos como vendidos
+            
             compra.getItems().forEach(item -> {
                 if (item.getAsiento() != null) {
                     asientoService.cambiarEstado(item.getAsiento().getIdAsiento(), EstadoAsiento.VENDIDO);
@@ -160,11 +160,11 @@ public class CompraServiceImpl implements ICompraService {
         if (nuevoAsiento == null || nuevoAsiento.getEstadoAsiento() != EstadoAsiento.DISPONIBLE)
             return false;
 
-        // Liberar antiguo
+        
         if (entrada.getAsiento() != null) {
             asientoService.cambiarEstado(entrada.getAsiento().getIdAsiento(), EstadoAsiento.DISPONIBLE);
         }
-        // Asignar nuevo
+        
         asientoService.cambiarEstado(idNuevoAsiento, EstadoAsiento.VENDIDO);
         entrada.setAsiento(nuevoAsiento);
         entradaRepository.update(entrada);

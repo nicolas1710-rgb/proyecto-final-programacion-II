@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Representa un usuario registrado en la plataforma TicketFlow.
- */
+
+
+
 public class Usuario {
     private UUID idUsuario;
     private String nombreCompleto;
@@ -30,7 +30,7 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
-    // Getters y Setters
+    
     public UUID getIdUsuario() {
         return idUsuario;
     }

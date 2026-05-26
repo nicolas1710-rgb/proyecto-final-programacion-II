@@ -26,7 +26,7 @@ public class LoginController {
             return;
         }
 
-        // Buscar en admin
+        
         Administrador asAdmin = Main.adminRepo.findByCorreo(correo).orElse(null);
         if (asAdmin != null && asAdmin.getContrasena().equals(pass)) {
             GestorSesion.getInstance().loginAdmin(asAdmin);
@@ -34,7 +34,7 @@ public class LoginController {
             return;
         }
 
-        // Buscar en usuario
+        
         Usuario asUser = Main.usuarioService.iniciarSesion(correo, pass);
         if (asUser != null) {
             GestorSesion.getInstance().loginUsuario(asUser);

@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
-/** Generador de reportes en formato CSV usando OpenCSV. */
+
 public class ReporteCSV {
 
     public static void ventasPorPeriodo(Map<LocalDate, Double> datos, String filePath) {

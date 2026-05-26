@@ -43,7 +43,7 @@ public class MapaAsientosController {
                 filaActual = asiento.getFila();
                 row++;
                 col = 0;
-                // Etiqueta de fila
+                
                 Label lblFila = new Label(filaActual);
                 lblFila.setStyle("-fx-text-fill: white; -fx-padding: 5;");
                 gridAsientos.add(lblFila, col++, row);
@@ -52,7 +52,7 @@ public class MapaAsientosController {
             Button btnAsiento = new Button(String.valueOf(asiento.getNumero()));
             btnAsiento.getStyleClass().add("asiento-btn");
 
-            // Estilo por estado
+            
             switch (asiento.getEstado()) {
                 case DISPONIBLE:
                     btnAsiento.getStyleClass().add("asiento-disponible");
@@ -81,7 +81,7 @@ public class MapaAsientosController {
     private void toggleAsiento(Asiento asiento, Button btn) {
         if (asientosSeleccionados.contains(asiento)) {
             asientosSeleccionados.remove(asiento);
-            btn.setStyle(""); // Reset inline style
+            btn.setStyle(""); 
         } else {
             asientosSeleccionados.add(asiento);
             btn.setStyle("-fx-border-color: white; -fx-border-width: 2;");

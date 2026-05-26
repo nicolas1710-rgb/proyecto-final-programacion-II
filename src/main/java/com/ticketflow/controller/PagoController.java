@@ -29,7 +29,7 @@ public class PagoController {
 
         lblTotal.setText("Total a Pagar: $" + String.format("%.2f", compraActual.getTotal()));
 
-        // Cargar métodos de pago del usuario
+        
         cmbMetodoPago.setItems(
                 FXCollections.observableArrayList(GestorSesion.getInstance().getUsuarioActual().getMetodosDePago()));
     }
@@ -43,13 +43,13 @@ public class PagoController {
         }
 
         try {
-            // Confirmar pago usando el servicio (que usa el Strategy internamente y el
-            // adapter)
-            // Para la demo, lo pasaremos como está, Main.compraService.confirmarPago lo
-            // hace
+            
+            
+            
+            
             Pago p = Main.compraService.confirmarPago(compraActual.getIdCompra(), metodo);
 
-            // Generar entradas (Facade simplificado en realidad, o paso manual)
+            
             Main.entradaService.generarEntradas(compraActual);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Pago aprobado. Entradas generadas.");

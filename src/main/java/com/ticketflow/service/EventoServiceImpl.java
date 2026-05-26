@@ -8,10 +8,10 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * Implementación del servicio de eventos.
- * Gestiona el ciclo de vida de eventos y su disponibilidad.
- */
+
+
+
+
 public class EventoServiceImpl implements IEventoService {
     private final EventoRepository eventoRepository;
     private final EntradaRepository entradaRepository;

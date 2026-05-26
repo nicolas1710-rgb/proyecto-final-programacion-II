@@ -4,7 +4,7 @@ import com.ticketflow.model.Pago;
 import com.ticketflow.enums.EstadoPago;
 import java.util.UUID;
 
-/** Adaptador para pago en Efectivo. Siempre aprueba (pago presencial). */
+
 public class EfectivoAdapter implements IPasarelaPago {
     @Override
     public ResultadoPago procesar(Pago pago) {

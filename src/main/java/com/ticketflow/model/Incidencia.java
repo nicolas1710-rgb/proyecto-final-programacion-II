@@ -4,9 +4,9 @@ import com.ticketflow.enums.TipoIncidencia;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-/**
- * Representa una incidencia o problema registrado en el sistema.
- */
+
+
+
 public class Incidencia {
     private UUID idIncidencia;
     private Usuario usuario;

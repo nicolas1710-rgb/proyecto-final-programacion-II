@@ -57,7 +57,7 @@ public class DetalleCompraController {
     }
 
     private void cargarDatos() {
-        // Refrescar la compra
+        
         compraActual = Main.compraService.obtenerDetalle(compraActual.getIdCompra());
 
         lblIdCompra.setText("Compra #" + compraActual.getIdCompra().toString().substring(0, 8).toUpperCase());
@@ -93,7 +93,7 @@ public class DetalleCompraController {
 
     @FXML
     public void onDescargarTickets() {
-        // Simulación de descarga
+        
         new Alert(Alert.AlertType.INFORMATION, "Tickets descargados en PDF (Simulado).").show();
     }
 

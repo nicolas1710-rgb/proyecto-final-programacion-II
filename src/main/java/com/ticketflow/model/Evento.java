@@ -5,9 +5,9 @@ import com.ticketflow.enums.EstadoEvento;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-/**
- * Representa un evento en la plataforma TicketFlow.
- */
+
+
+
 public class Evento {
     private UUID idEvento;
     private String nombre;

@@ -8,9 +8,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Stack;
 
-/**
- * Singleton que gestiona la navegación entre vistas JavaFX.
- */
+
+
+
 public class NavigationManager {
     private static NavigationManager instancia;
     private Stage stage;
@@ -36,7 +36,7 @@ public class NavigationManager {
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
-            // Cargar CSS
+            
             scene.getStylesheets().add(getClass().getResource("/com/ticketflow/css/styles.css").toExternalForm());
 
             if (stage.getScene() != null) {

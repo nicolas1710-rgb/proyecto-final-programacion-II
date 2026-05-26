@@ -3,7 +3,7 @@ package com.ticketflow.patterns.comportamiento;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Sujeto observable para eventos del sistema. */
+
 public class EventoSubject {
     private final List<IObservadorEvento> observadores = new ArrayList<>();
 

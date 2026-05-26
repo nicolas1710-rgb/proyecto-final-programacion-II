@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    //Repositorios estáticos para compartirlos entre controladores a
+    
     public static UsuarioRepository usuarioRepo = new UsuarioRepository();
     public static AdministradorRepository adminRepo = new AdministradorRepository();
     public static EventoRepository eventoRepo = new EventoRepository();
@@ -21,7 +21,7 @@ public class Main extends Application {
     public static PagoRepository pagoRepo = new PagoRepository();
     public static IncidenciaRepository incidenciaRepo = new IncidenciaRepository();
 
-    // Servicios estáticos
+    
     public static IUsuarioService usuarioService = new UsuarioServiceImpl(usuarioRepo, compraRepo);
     public static IAsientoService asientoService = new AsientoServiceImpl(asientoRepo);
     public static ICompraService compraService = new CompraServiceImpl(compraRepo, usuarioRepo, eventoRepo,
@@ -34,16 +34,16 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        // Inicializar datos falsos de base de datos
+        
         DataInitializer.inicializarDatos(
                 usuarioRepo, adminRepo, eventoRepo, recintoRepo,
                 zonaRepo, asientoRepo, compraService);
 
-        // Config
-        //urar NavigationManager
+        
+        
         NavigationManager.getInstance().setStage(primaryStage);
 
-        // Iniciar en pantalla de Login
+        
         NavigationManager.getInstance().navigateTo("/com/ticketflow/view/LoginView.fxml",
                 "TicketFlow - Iniciar Sesión");
     }

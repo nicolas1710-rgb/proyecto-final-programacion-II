@@ -3,9 +3,9 @@ package com.ticketflow.model;
 import com.ticketflow.enums.TipoServicio;
 import java.util.UUID;
 
-/**
- * Representa un servicio adicional que se puede agregar a una compra.
- */
+
+
+
 public class ServicioAdicional {
     private UUID idServicio;
     private TipoServicio tipo;

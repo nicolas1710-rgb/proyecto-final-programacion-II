@@ -33,7 +33,7 @@ public class GestionEventosController {
     @FXML
     private DatePicker dpFecha;
     @FXML
-    private TextField txtHora; // formto HH:mm
+    private TextField txtHora; 
     @FXML
     private ComboBox<CategoriaEvento> cmbCategoria;
     @FXML
@@ -89,7 +89,7 @@ public class GestionEventosController {
             Recinto r = cmbRecinto.getValue();
 
             if (eventoSeleccionado == null) {
-                // Nuevo evento - Uso del Factory Method
+                
                 EventoCreator factory;
                 switch (cat) {
                     case CONCIERTO:
@@ -103,14 +103,14 @@ public class GestionEventosController {
                         break;
                     default:
                         factory = new ConciertoFactory();
-                        break; // Simplificación
+                        break; 
                 }
                 Evento nuevo = factory.crearEvento(nombre, desc, r.getCiudad(), fh, r);
                 nuevo.setEstadoEvento(cmbEstado.getValue() != null ? cmbEstado.getValue() : EstadoEvento.BORRADOR);
                 Main.eventoRepo.save(nuevo);
                 lblMensaje.setText("Evento creado.");
             } else {
-                // Modificar existente
+                
                 eventoSeleccionado.setNombre(nombre);
                 eventoSeleccionado.setDescripcion(desc);
                 eventoSeleccionado.setFechaHora(fh);

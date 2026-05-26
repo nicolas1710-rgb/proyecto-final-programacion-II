@@ -4,9 +4,9 @@ import com.ticketflow.model.*;
 import com.ticketflow.enums.*;
 import java.time.LocalDateTime;
 
-/**
- * Factory para crear eventos de tipo CONCIERTO con configuración por defecto.
- */
+
+
+
 public class ConciertoFactory implements EventoCreator {
     @Override
     public Evento crearEvento(String nombre, String descripcion, String ciudad, LocalDateTime fechaHora,

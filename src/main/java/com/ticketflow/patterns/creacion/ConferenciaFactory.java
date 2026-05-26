@@ -4,7 +4,7 @@ import com.ticketflow.model.*;
 import com.ticketflow.enums.*;
 import java.time.LocalDateTime;
 
-/** Factory para crear eventos de tipo CONFERENCIA. */
+
 public class ConferenciaFactory implements EventoCreator {
     @Override
     public Evento crearEvento(String nombre, String descripcion, String ciudad, LocalDateTime fechaHora,

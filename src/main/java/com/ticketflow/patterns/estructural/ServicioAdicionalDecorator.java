@@ -1,6 +1,6 @@
 package com.ticketflow.patterns.estructural;
 
-/** Decorador abstracto base que implementa TicketComponent. */
+
 public abstract class ServicioAdicionalDecorator implements TicketComponent {
     protected final TicketComponent componente;
 

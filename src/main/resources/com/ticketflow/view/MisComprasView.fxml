@@ -20,4 +20,11 @@
             <TableColumn fx:id="colEstado" text="Estado" prefWidth="120"/>
         </columns>
     </TableView>
+    
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Pagar compra pendiente:" styleClass="subtitle-label"/>
+        <ComboBox fx:id="cmbMetodoPago" promptText="Seleccionar método de pago" prefWidth="220" disable="true"/>
+        <Button fx:id="btnPagar" text="Pagar" onAction="#onPagarCompra" styleClass="button-primary" disable="true"/>
+        <Label fx:id="lblMensaje" style="-fx-text-fill: #ff6b6b;"/>
+    </HBox>
 </VBox>

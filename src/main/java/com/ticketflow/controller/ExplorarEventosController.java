@@ -33,11 +33,11 @@ public class ExplorarEventosController {
 
     @FXML
     public void initialize() {
-        // Inicializar combos
+        
         cmbCategoria.setItems(FXCollections.observableArrayList(CategoriaEvento.values()));
         cmbCiudad.setItems(FXCollections.observableArrayList("Bogotá", "Medellín", "Cali"));
 
-        // Escuchar cambios de tamaño en el ScrollPane para ajustar columnas del GridPane
+        
         scrollPane.widthProperty().addListener((obs, oldVal, newVal) -> {
             reorganizarGrid(newVal.doubleValue());
         });
@@ -72,10 +72,10 @@ public class ExplorarEventosController {
 
         eventosActivos = Main.eventoService.buscarConFiltros(fecha, ciudad, categoria, precioMax);
         
-        // Ejecutar la organización del grid con el ancho actual (o fallback si no se ha renderizado)
+        
         double currentWidth = scrollPane.getWidth();
         if (currentWidth <= 100) {
-            currentWidth = 800; // Valor default inicial razonable
+            currentWidth = 800; 
         }
         reorganizarGrid(currentWidth);
     }
@@ -89,11 +89,11 @@ public class ExplorarEventosController {
             return;
         }
 
-        // Cada tarjeta mide 220px y el hgap es de 20px
+        
         double cardWidth = 240.0;
         int columns = (int) Math.max(1, Math.floor((width - 20) / cardWidth));
 
-        // Limitar a máximo 4 columnas para que quepa bien en el diseño
+        
         columns = Math.min(4, columns);
 
         int row = 0;

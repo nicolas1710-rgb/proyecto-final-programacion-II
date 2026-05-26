@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Representa una compra realizada por un usuario en la plataforma.
- * Agrupa ítems, servicios adicionales y el pago asociado.
- */
+
+
+
+
 public class Compra {
     private UUID idCompra;
     private Usuario usuario;

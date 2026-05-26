@@ -4,11 +4,11 @@ import com.ticketflow.model.*;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Interfaz de servicio para gestión de usuarios.
- * Principio SRP: Esta interfaz solo define operaciones relacionadas con
- * usuarios.
- */
+
+
+
+
+
 public interface IUsuarioService {
     Usuario registrar(Usuario usuario);
 

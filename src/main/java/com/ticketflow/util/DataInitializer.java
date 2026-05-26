@@ -20,11 +20,11 @@ public class DataInitializer {
 
         System.out.println("--- INICIALIZANDO DATOS DE PRUEBA ---");
 
-        // 1. Admin
+        
         Administrador admin = new Administrador("Admin Principal", "admin@gmail.com", "admin123");
         adminRepo.save(admin);
 
-        // 2. Usuarios con métodos de pago
+        
         List<Usuario> usuarios = new ArrayList<>();
         for (int i = 1; i <= 5; i++) {
             Usuario u = new Usuario("Usuario " + i, "usuario" + i + "@gmail.com", "555-000" + i, "contraseña" + i);
@@ -34,7 +34,7 @@ public class DataInitializer {
             usuarios.add(u);
         }
 
-        // 3. Recintos, Zonas y Asientos
+        
         List<Recinto> recintos = new ArrayList<>();
         recintos.add(new Recinto("Estadio Centenario", "Calle 1 # 2-3", "Bogotá"));
         recintos.add(new Recinto("Teatro Municipal", "Carrera 4 # 5-6", "Medellín"));
@@ -52,7 +52,7 @@ public class DataInitializer {
                 zonaRepo.save(z);
                 r.getZonas().add(z);
 
-                // Crear asientos numerados para VIP y Preferencial (Filas A-E, 1-10)
+                
                 if (z.getTipoZona() != TipoZona.GENERAL) {
                     char[] filas = { 'A', 'B', 'C', 'D', 'E' };
                     for (char fila : filas) {
@@ -67,7 +67,7 @@ public class DataInitializer {
             recintoRepo.update(r);
         }
 
-        // 4. Eventos
+        
         List<Evento> eventos = new ArrayList<>();
         eventos.add(new Evento("Gran Concierto Rock", CategoriaEvento.CONCIERTO, "El mejor concierto del año",
                 recintos.get(0).getCiudad(), LocalDateTime.now().plusDays(30), recintos.get(0)));
@@ -106,13 +106,13 @@ public class DataInitializer {
             eventoRepo.save(e);
         }
 
-        // 5. Compras (simuladas)
-        // Para simplificar la inicialización sin depender de ICompraService
-        // completamente,
-        // crearemos algunas compras usando el servicio
+        
+        
+        
+        
         try {
             Usuario u1 = usuarios.get(0);
-            Evento e1 = eventos.get(0); // Publicado
+            Evento e1 = eventos.get(0); 
             Zona zVip = e1.getRecinto().getZonas().get(0);
 
             List<ItemCompra> items = new ArrayList<>();

@@ -2,10 +2,10 @@ package com.ticketflow.patterns.comportamiento;
 
 import java.util.Stack;
 
-/**
- * Invoker que ejecuta comandos y mantiene un historial para permitir 'deshacer'
- * (undo).
- */
+
+
+
+
 public class InvokerCompras {
     private final Stack<IComando> historial = new Stack<>();
 

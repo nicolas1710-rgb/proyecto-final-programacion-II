@@ -19,7 +19,7 @@ public class MetricasController {
     @FXML
     private BarChart<String, Number> chartVentas;
     @FXML
-    private PieChart chartRecintos; // Usaremos esto para Top Eventos
+    private PieChart chartRecintos; 
 
     @FXML
     public void initialize() {
@@ -27,11 +27,11 @@ public class MetricasController {
     }
 
     private void cargarMetricas() {
-        // Tasa de cancelación
+        
         double tasa = Main.metricasService.tasaCancelacion();
         lblTasaCancelacion.setText(String.format("%.1f%%", tasa));
 
-        // Ventas por periodo (ultimos 30 días)
+        
         LocalDate hoy = LocalDate.now();
         Map<LocalDate, Double> ventas = Main.metricasService.ventasPorPeriodo(hoy.minusDays(30), hoy);
 
@@ -42,11 +42,11 @@ public class MetricasController {
         }
         chartVentas.getData().add(seriesVentas);
 
-        // Top 5 eventos
+        
         List<Evento> top = Main.metricasService.topEventos(5);
         for (Evento e : top) {
-            // Simulamos porcentaje simple basado en su total actual
-            // En un sistema real sumaríamos los totales de cada top para calcular el pie
+            
+            
             double valorSimulado = Math.random() * 100 + 50;
             chartRecintos.getData().add(new PieChart.Data(e.getNombre(), valorSimulado));
         }

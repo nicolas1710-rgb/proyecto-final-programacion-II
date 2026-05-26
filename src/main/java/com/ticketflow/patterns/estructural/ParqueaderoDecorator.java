@@ -1,6 +1,6 @@
 package com.ticketflow.patterns.estructural;
 
-/** Decorador Parqueadero: agrega el costo de parqueadero. */
+
 public class ParqueaderoDecorator extends ServicioAdicionalDecorator {
     private static final double PRECIO = 20000.0;
 

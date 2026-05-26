@@ -4,7 +4,7 @@ import com.ticketflow.model.Pago;
 import com.ticketflow.enums.EstadoPago;
 import java.util.UUID;
 
-/** Adaptador para pasarela de Tarjeta Crédito/Débito. */
+
 public class TarjetaAdapter implements IPasarelaPago {
     @Override
     public ResultadoPago procesar(Pago pago) {

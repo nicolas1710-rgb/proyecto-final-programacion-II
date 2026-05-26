@@ -1,6 +1,6 @@
 package com.ticketflow.patterns.estructural;
 
-/** Decorador Merchandising: agrega el costo de merchandising. */
+
 public class MerchandisingDecorator extends ServicioAdicionalDecorator {
     private static final double PRECIO = 25000.0;
 

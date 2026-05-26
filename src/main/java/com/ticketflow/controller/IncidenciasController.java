@@ -64,8 +64,8 @@ public class IncidenciasController {
             return;
         }
 
-        // Para demo se asigna al admin actual o usuario si estuviera logueado un
-        // usuario
+        
+        
         if (GestorSesion.getInstance().getUsuarioActual() != null) {
             Incidencia inc = new Incidencia(GestorSesion.getInstance().getUsuarioActual(), null, tipo, desc);
             Main.incidenciaService.registrar(inc);

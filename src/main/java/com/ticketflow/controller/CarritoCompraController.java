@@ -22,7 +22,7 @@ import java.util.List;
 public class CarritoCompraController {
     public static Evento eventoActual;
     public static Zona zonaSeleccionada;
-    public static List<Asiento> asientosSeleccionados; // Si es null, es zona sin asientos
+    public static List<Asiento> asientosSeleccionados; 
 
     @FXML
     private Label lblEventoDetalle;
@@ -62,8 +62,8 @@ public class CarritoCompraController {
                 itemsParaCompra.add(new ItemCompra(zonaSeleccionada, a, zonaSeleccionada.getPrecioBase(), 1));
             }
         } else {
-            // Zona general, 1 ticket por defecto. Para más, se necesitaría un input de
-            // cantidad (Sipmlificado aquí)
+            
+            
             itemsParaCompra.add(new ItemCompra(zonaSeleccionada, null, zonaSeleccionada.getPrecioBase(), 1));
         }
     }
@@ -83,8 +83,8 @@ public class CarritoCompraController {
     }
 
     private void calcularTotal() {
-        // En un caso real usaríamos el CompraBuilder, pero aquí simulamos el total para
-        // la UI
+        
+        
         totalCalculado = 0;
         for (ItemCompra item : itemsParaCompra) {
             Entrada simulada = new Entrada(item.getZona(), item.getAsiento(), item.getPrecioUnitario());
@@ -113,7 +113,7 @@ public class CarritoCompraController {
         }
 
         try {
-            // Se usa el service (que podría usar CompraBuilder / Facade por dentro)
+            
             Compra c = Main.compraService.crearCompra(u.getIdUsuario(), eventoActual.getIdEvento(), itemsParaCompra);
 
             if (!serviciosElegidos.isEmpty()) {

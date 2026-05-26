@@ -3,9 +3,9 @@ package com.ticketflow.model;
 import com.ticketflow.enums.EstadoAsiento;
 import java.util.UUID;
 
-/**
- * Representa un asiento individual dentro de una zona con asientos numerados.
- */
+
+
+
 public class Asiento {
     private UUID idAsiento;
     private String fila;

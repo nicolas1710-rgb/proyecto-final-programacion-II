@@ -4,18 +4,18 @@ import com.ticketflow.model.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * PATRÓN BUILDER — CompraBuilder
- *
- * PROBLEMA: Construir objetos Compra complejos paso a paso
- * (agregar ítems, servicios adicionales, método de pago) sin
- * constructores con demasiados parámetros.
- *
- * PROPÓSITO: Separar la construcción de objetos complejos de su representación.
- *
- * SOLUCIÓN: CompraBuilder con métodos fluidos (fluent API) que permiten
- * configurar la compra incrementalmente y construirla al final con build().
- */
+
+
+
+
+
+
+
+
+
+
+
+
 public class CompraBuilder {
     private Usuario usuario;
     private Evento evento;
@@ -48,9 +48,9 @@ public class CompraBuilder {
         return this;
     }
 
-    /**
-     * Construye y retorna la instancia de Compra configurada.
-     */
+    
+
+
     public Compra build() {
         if (usuario == null)
             throw new IllegalStateException("CompraBuilder: usuario es obligatorio.");

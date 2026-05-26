@@ -4,9 +4,9 @@ import com.ticketflow.enums.EstadoPago;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-/**
- * Representa un pago asociado a una compra en la plataforma.
- */
+
+
+
 public class Pago {
     private UUID idPago;
     private MetodoPago metodoPago;

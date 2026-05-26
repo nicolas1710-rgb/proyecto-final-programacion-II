@@ -1,6 +1,6 @@
 package com.ticketflow.patterns.comportamiento;
 
-/** Descuento 10% para clientes VIP. */
+
 public class DescuentoVIP implements IEstrategiaDescuento {
     @Override
     public double aplicar(double p) {

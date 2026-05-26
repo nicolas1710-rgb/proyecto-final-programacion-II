@@ -3,7 +3,7 @@ package com.ticketflow.patterns.comportamiento;
 import com.ticketflow.model.Compra;
 import com.ticketflow.service.ICompraService;
 
-/** Comando concreto para crear una compra. */
+
 public class ComandoCrearCompra implements IComando {
     private final ICompraService compraService;
     private final Compra compra;

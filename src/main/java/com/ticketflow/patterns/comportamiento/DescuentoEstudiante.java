@@ -1,6 +1,6 @@
 package com.ticketflow.patterns.comportamiento;
 
-/** Descuento 15% para estudiantes. */
+
 public class DescuentoEstudiante implements IEstrategiaDescuento {
     @Override
     public double aplicar(double p) {

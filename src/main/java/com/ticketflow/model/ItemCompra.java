@@ -2,14 +2,14 @@ package com.ticketflow.model;
 
 import java.util.UUID;
 
-/**
- * Representa un ítem dentro de una compra (zona, asiento opcional, cantidad,
- * precio).
- */
+
+
+
+
 public class ItemCompra {
     private UUID idItem;
     private Zona zona;
-    private Asiento asiento; // nullable para zonas libres
+    private Asiento asiento; 
     private double precioUnitario;
     private int cantidad;
 

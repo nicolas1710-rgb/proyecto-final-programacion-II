@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-/**
- * Interfaz del servicio de eventos.
- * ISP: separada de IGestionEstadoEvento para mayor granularidad.
- */
+
+
+
+
 public interface IEventoService {
     Evento crear(Evento evento);
 

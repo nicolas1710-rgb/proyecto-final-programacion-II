@@ -11,7 +11,7 @@ import javafx.scene.control.*;
 import java.util.Map;
 
 public class DetalleEventoController {
-    public static Evento eventoActual; // Pasado desde la vista anterior
+    public static Evento eventoActual; 
 
     @FXML
     private Label lblTitulo;
@@ -48,7 +48,7 @@ public class DetalleEventoController {
         lblDescripcion.setText(eventoActual.getDescripcion());
         lblPolCancelacion.setText(eventoActual.getPoliticaCancelacion());
 
-        // Configurar tabla de zonas
+        
         colZona.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getKey().getNombre()));
         colPrecio.setCellValueFactory(cellData -> new SimpleStringProperty(
                 String.format("$%.2f", cellData.getValue().getKey().getPrecioBase())));
@@ -80,13 +80,13 @@ public class DetalleEventoController {
         CarritoCompraController.eventoActual = eventoActual;
         CarritoCompraController.zonaSeleccionada = zona;
 
-        // Si la zona tiene asientos específicos numerados, se va al mapa.
+        
         if (zona.getAsientos() != null && !zona.getAsientos().isEmpty()) {
             MapaAsientosController.zonaActual = zona;
             NavigationManager.getInstance().navigateTo("/com/ticketflow/view/MapaAsientosView.fxml",
                     "TicketFlow - Seleccionar Asientos");
         } else {
-            // Si es zona general sin asientos fijos, va directo al carrito
+            
             NavigationManager.getInstance().navigateTo("/com/ticketflow/view/CarritoCompraView.fxml",
                     "TicketFlow - Carrito");
         }

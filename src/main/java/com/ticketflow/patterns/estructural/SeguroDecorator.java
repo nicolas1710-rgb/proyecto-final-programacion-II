@@ -1,6 +1,6 @@
 package com.ticketflow.patterns.estructural;
 
-/** Decorador Seguro: agrega el costo de seguro de cancelación. */
+
 public class SeguroDecorator extends ServicioAdicionalDecorator {
     private static final double PRECIO_SEGURO = 15000.0;
 

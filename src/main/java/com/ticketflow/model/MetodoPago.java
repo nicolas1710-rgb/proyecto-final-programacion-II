@@ -3,9 +3,9 @@ package com.ticketflow.model;
 import com.ticketflow.enums.TipoMetodoPago;
 import java.util.UUID;
 
-/**
- * Representa un método de pago asociado a un usuario.
- */
+
+
+
 public class MetodoPago {
     private UUID idMetodoPago;
     private TipoMetodoPago tipo;
@@ -25,7 +25,7 @@ public class MetodoPago {
         this.titular = titular;
     }
 
-    // Getters y Setters
+    
     public UUID getIdMetodoPago() {
         return idMetodoPago;
     }

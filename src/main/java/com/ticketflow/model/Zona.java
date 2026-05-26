@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Representa una zona dentro de un recinto (VIP, Preferencial, General).
- */
+
+
+
 public class Zona {
     private UUID idZona;
     private String nombre;

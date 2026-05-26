@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Representa un recinto físico donde se realizan los eventos.
- */
+
+
+
 public class Recinto {
     private UUID idRecinto;
     private String nombre;

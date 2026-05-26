@@ -1,6 +1,6 @@
 package com.ticketflow.patterns.comportamiento;
 
-/** Descuento 20% para compra anticipada (early bird). */
+
 public class DescuentoEarlyBird implements IEstrategiaDescuento {
     @Override
     public double aplicar(double p) {

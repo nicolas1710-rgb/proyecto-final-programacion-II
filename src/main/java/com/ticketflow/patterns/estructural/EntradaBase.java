@@ -2,7 +2,7 @@ package com.ticketflow.patterns.estructural;
 
 import com.ticketflow.model.Entrada;
 
-/** Componente base: envuelve una Entrada real. */
+
 public class EntradaBase implements TicketComponent {
     private final Entrada entrada;
 

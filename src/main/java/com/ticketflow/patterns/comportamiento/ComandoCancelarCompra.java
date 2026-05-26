@@ -3,10 +3,10 @@ package com.ticketflow.patterns.comportamiento;
 import com.ticketflow.service.ICompraService;
 import java.util.UUID;
 
-/**
- * Comando concreto para cancelar una compra y soportar rehacer (deshacer la
- * cancelación).
- */
+
+
+
+
 public class ComandoCancelarCompra implements IComando {
     private final ICompraService compraService;
     private final UUID idCompra;
@@ -34,8 +34,8 @@ public class ComandoCancelarCompra implements IComando {
     @Override
     public void deshacer() {
         if (ejecutado) {
-            // Nota: En un caso real completo, Restaurar compra desharía la anulación de
-            // asientos
+            
+            
             System.out.println("[Comando] Operación no soportada todavía: Deshacer cancelación.");
             ejecutado = false;
         }

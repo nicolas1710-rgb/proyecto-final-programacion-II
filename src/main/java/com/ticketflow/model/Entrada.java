@@ -3,15 +3,15 @@ package com.ticketflow.model;
 import com.ticketflow.enums.EstadoEntrada;
 import java.util.UUID;
 
-/**
- * Representa una entrada generada a partir de una compra confirmada.
- * Contiene un código QR único para validación en el evento.
- */
+
+
+
+
 public class Entrada {
     private UUID idEntrada;
     private Compra compra;
     private Zona zona;
-    private Asiento asiento; // nullable para zona libre
+    private Asiento asiento; 
     private double precioFinal;
     private EstadoEntrada estadoEntrada;
     private String codigoQR;

@@ -3,10 +3,10 @@ package com.ticketflow.model;
 import com.ticketflow.enums.Rol;
 import java.util.UUID;
 
-/**
- * Representa un administrador del sistema TicketFlow.
- * Hereda las características básicas de persona vía campos directos.
- */
+
+
+
+
 public class Administrador {
     private UUID idAdmin;
     private String nombreCompleto;

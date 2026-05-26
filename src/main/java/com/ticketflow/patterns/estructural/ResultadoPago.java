@@ -1,6 +1,6 @@
 package com.ticketflow.patterns.estructural;
 
-/** DTO para el resultado de un procesamiento de pago. */
+
 public class ResultadoPago {
     private final boolean aprobado;
     private final String mensaje;

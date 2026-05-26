@@ -4,9 +4,9 @@ import com.ticketflow.model.Usuario;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * Repositorio en memoria para la entidad Usuario.
- */
+
+
+
 public class UsuarioRepository implements CrudRepository<Usuario, UUID> {
     private final Map<UUID, Usuario> store = new HashMap<>();
 

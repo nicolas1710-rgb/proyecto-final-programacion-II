@@ -6,11 +6,11 @@ import com.ticketflow.repository.UsuarioRepository;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Implementación del servicio de usuarios.
- * Principio DIP: Depende de repositorios (abstracción), no de implementaciones
- * directas.
- */
+
+
+
+
+
 public class UsuarioServiceImpl implements IUsuarioService {
     private final UsuarioRepository usuarioRepository;
     private final CompraRepository compraRepository;

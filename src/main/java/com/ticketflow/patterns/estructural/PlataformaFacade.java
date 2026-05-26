@@ -4,19 +4,19 @@ import com.ticketflow.model.*;
 import com.ticketflow.enums.TipoMetodoPago;
 import com.ticketflow.service.*;
 
-/**
- * PATRÓN FACADE — PlataformaFacade
- *
- * PROBLEMA: Un controlador JavaFX necesita coordinar múltiples servicios
- * (CompraService + EntradaService + PagoService + IncidenciaService) para
- * completar una compra. Esta orquestación crea acoplamiento en el controlador.
- *
- * PROPÓSITO: Proveer una interfaz simplificada a un conjunto complejo de
- * subsistemas, reduciendo el acoplamiento con el código cliente.
- *
- * SOLUCIÓN: PlataformaFacade expone métodos de alto nivel que internamente
- * coordinan todos los servicios necesarios.
- */
+
+
+
+
+
+
+
+
+
+
+
+
+
 public class PlataformaFacade {
     private final ICompraService compraService;
     private final IEntradaService entradaService;
@@ -30,28 +30,28 @@ public class PlataformaFacade {
         this.incidenciaService = incidenciaService;
     }
 
-    /**
-     * Orquesta el flujo completo de compra: crear, confirmar pago, generar
-     * entradas.
-     */
+    
+
+
+
     public CompraResultado realizarCompraCompleta(java.util.UUID idUsuario, java.util.UUID idEvento,
             java.util.List<ItemCompra> items,
             java.util.List<ServicioAdicional> servicios,
             MetodoPago metodoPago) {
         try {
-            // 1. Crear compra
+            
             Compra compra = compraService.crearCompra(idUsuario, idEvento, items);
 
-            // 2. Agregar servicios adicionales si hay
+            
             if (servicios != null && !servicios.isEmpty()) {
                 compraService.modificarCompra(compra.getIdCompra(), items, servicios);
                 compra = compraService.obtenerDetalle(compra.getIdCompra());
             }
 
-            // 3. Confirmar pago
+            
             Pago pago = compraService.confirmarPago(compra.getIdCompra(), metodoPago);
 
-            // 4. Generar entradas
+            
             java.util.List<Entrada> entradas = entradaService.generarEntradas(compra);
 
             System.out.println("[PlataformaFacade] Compra completa. Entradas generadas: " + entradas.size());
@@ -62,7 +62,7 @@ public class PlataformaFacade {
         }
     }
 
-    /** DTO de resultado del flujo de compra. */
+    
     public static class CompraResultado {
         public final boolean exitoso;
         public final Compra compra;

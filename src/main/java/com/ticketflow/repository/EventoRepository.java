@@ -7,9 +7,9 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * Repositorio en memoria para la entidad Evento.
- */
+
+
+
 public class EventoRepository implements CrudRepository<Evento, UUID> {
     private final Map<UUID, Evento> store = new HashMap<>();
 
